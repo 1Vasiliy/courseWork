@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'idea'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.openjfx:javafx-base:11.0.2:linux'
+    compile 'org.openjfx:javafx-graphics:11.0.2:linux'
+    compile 'org.openjfx:javafx-controls:11.0.2:linux'
+    compile 'org.openjfx:javafx-fxml:11.0.2:linux'
+}
+
+application {
+    mainClassName = 'game.App'
+}
+
