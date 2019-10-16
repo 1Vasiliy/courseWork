@@ -25,7 +25,7 @@ dependencies {
     compile "org.openjfx:javafx-controls:11.0.2:${platform}"
     compile "org.openjfx:javafx-fxml:11.0.2:${platform}"
 }
-//ща чекну как там
+
 application {
     mainClassName = 'game.Main'
 }
