@@ -1,4 +1,4 @@
-package game;
+package company.java;
 
 import static javafx.application.Application.launch;
 

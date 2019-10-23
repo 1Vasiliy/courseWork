@@ -2,11 +2,8 @@ plugins {
     id 'java'
     id 'application'
     id 'idea'
-}
 
-
-repositories {
-    mavenCentral()
+    id 'org.openjfx.javafxplugin' version '0.0.7'
 }
 
 def currentOS = org.gradle.internal.os.OperatingSystem.current()
@@ -19,15 +16,35 @@ if (currentOS.isWindows()) {
     platform = 'mac'
 }
 
-dependencies {
-    compile "org.openjfx:javafx-base:11.0.2:${platform}"
-    compile "org.openjfx:javafx-graphics:11.0.2:${platform}"
-    compile "org.openjfx:javafx-controls:11.0.2:${platform}"
-    compile "org.openjfx:javafx-fxml:11.0.2:${platform}"
+repositories {
+    mavenCentral()
 }
 
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+        resources {
+            srcDirs = ['src/company/resources']
+        }
+    }
+}
+
+//dependencies {
+//    compile "org.openjfx:javafx-base:11.0.2:${platform}"
+//    compile "org.openjfx:javafx-graphics:11.0.2:${platform}"
+//    compile "org.openjfx:javafx-controls:11.0.2:${platform}"
+//    compile "org.openjfx:javafx-fxml:11.0.2:${platform}"
+//}
+
 application {
-    mainClassName = 'game.Main'
+    mainClassName = 'company.java.Main'
+}
+
+javafx {
+    modules = [ 'javafx.controls', 'javafx.fxml']
+    version = '11.0.2'
 }
 
 jar {
