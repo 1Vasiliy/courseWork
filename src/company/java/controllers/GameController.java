@@ -7,16 +7,17 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Paint;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class GameController {
-    final int size = 600, dot_size = 10, up = 1, right = 2, down = 3, left = 4;
-    int delay, length, dir;
-    GraphicsContext gc;
-    int x[] = new int[size * size];
-    int y[] = new int[size * size];
-    Thread game;
-    boolean lost;
+    private final int size = 600, dot_size = 10, up = 1, right = 2, down = 3, left = 4;
+    private int delay, length, dir, food_x, food_y;
+    private GraphicsContext gc;
+    private int x[] = new int[size * size];
+    private int y[] = new int[size * size];
+    private Thread game;
+    private boolean lost;
 
     @FXML
     Canvas canvas;
@@ -45,6 +46,8 @@ public class GameController {
     private void draw(GraphicsContext gc) {
         gc.clearRect(0, 0, size, size);
         if (!lost) {
+            gc.setFill(Paint.valueOf("green"));
+            gc.fillOval(food_x, food_y, dot_size, dot_size);
             gc.setFill(Paint.valueOf("red"));
             gc.fillOval(x[0], y[0], dot_size, dot_size);
             gc.setFill(Paint.valueOf("orange"));
@@ -53,8 +56,9 @@ public class GameController {
             }
 
         } else {
-            gc.setFill(Paint.valueOf("black"));
-            gc.fillText("Game Over", size / 2 - 50, size / 2 - 15);
+            gc.setFill(Paint.valueOf("white"));
+            gc.setFont(Font.font(28));
+            gc.fillText("Game Over", size / 2 - 100, size / 2 - 15);
             game.stop();
         }
     }
@@ -66,24 +70,20 @@ public class GameController {
             x[i] = 50 - i * dot_size;
             y[i] = 50;
         }
-        game = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (true) {
-                    if (!lost) {
-                        checkCollision();
-                        move();
-                    }
-                    draw(gc);
-                    try {
-                        Thread.sleep(delay);
-                    } catch (Exception e) {
-                    }
-                    ;
+        locateFood();
+        game = new Thread(() -> {
+            while (true) {
+                if (!lost) {
+                    checkFood();
+                    checkCollision();
+                    move();
+                }
+                draw(gc);
+                try {
+                    Thread.sleep(delay);
+                } catch (Exception e) {
                 }
             }
-
-
         });
         game.start();
     }
@@ -95,6 +95,18 @@ public class GameController {
         if (y[0] < 0) lost = true;
         for (int i = 3; i < length; i++)
             if (x[0] == x[i] && y[0] == y[i]) lost = true;
+    }
+
+    private void locateFood() {
+        food_x = (int) (Math.random() * ((size / dot_size) - 1)) * dot_size;
+        food_y = (int) (Math.random() * ((size / dot_size) - 1)) * dot_size;
+    }
+
+    private void checkFood() {
+        if (x[0] == food_x && y[0] == food_y) {
+            length++;
+            locateFood();
+        }
     }
 
     private void move() {
