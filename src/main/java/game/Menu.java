@@ -6,12 +6,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Game extends Application {
+public class Menu extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/gameSample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/menuSample.fxml"));
 
+        primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root, 600,600));
-        primaryStage.show();
+         primaryStage.show();
     }
 }
