@@ -13,10 +13,11 @@ public class Game extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/gameSample.fxml"));
         Scene scene = new Scene(root, 600, 600);
 
+        primaryStage.setTitle("Snake");
+
         scene.getRoot().requestFocus();
 
         primaryStage.setScene(scene);
         primaryStage.show();
-
     }
 }

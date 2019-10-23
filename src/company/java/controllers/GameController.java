@@ -1,7 +1,5 @@
 package company.java.controllers;
 
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -37,7 +35,7 @@ public class GameController {
         lost = false;
 
         gc = canvas.getGraphicsContext2D();
-
+        canvas.setFocusTraversable(true);
         startGame();
     }
 
