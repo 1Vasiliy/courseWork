@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.layout.StackPane?>
 
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<Pane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="company.java.controllers.GameController"
-            prefHeight="400.0" prefWidth="600.0">
-    <ImageView>
-        <Image url="3aUyoNMvfDs.jpg" preserveRatio="true" requestedHeight="600"  backgroundLoading="true"/>
-    </ImageView>
-</Pane>
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="company.java.controllers.GameController">
+   <children>
+      <Canvas fx:id="canvas" height="600.0" onKeyPressed="#keyPressed" width="600.0" />
+   </children>
+</StackPane>
