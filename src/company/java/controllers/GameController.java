@@ -1,11 +1,13 @@
 package company.java.controllers;
 
+import company.java.Menu;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Paint;
+import javafx.stage.Stage;
 
 public class GameController {
     final int size = 600, dot_size = 10, up = 1, right = 2, down = 3, left = 4;
@@ -16,17 +18,18 @@ public class GameController {
     Thread game;
     boolean lost;
 
-
     @FXML
     Canvas canvas;
 
     @FXML
-    public void keyPressed(KeyEvent k){
-        KeyCode key = k.getCode();
-        if (key.equals(KeyCode.UP)) dir = up;
-        if (key.equals(KeyCode.DOWN)) dir = down;
-        if (key.equals(KeyCode.LEFT)) dir = left;
-        if (key.equals(KeyCode.RIGHT)) dir = right;
+    public void keyPressed(KeyEvent key) throws Exception {
+        if (key.getCode().equals(KeyCode.UP)) dir = up;
+        if (key.getCode().equals(KeyCode.DOWN)) dir = down;
+        if (key.getCode().equals(KeyCode.LEFT)) dir = left;
+        if (key.getCode().equals(KeyCode.RIGHT)) dir = right;
+        if (key.getCode().equals(KeyCode.ESCAPE)){
+            new Menu().start((Stage) canvas.getScene().getWindow());
+        }
     }
 
 

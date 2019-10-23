@@ -13,6 +13,6 @@ public class Menu extends Application {
 
         primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root, 600,600));
-         primaryStage.show();
+        primaryStage.show();
     }
 }
