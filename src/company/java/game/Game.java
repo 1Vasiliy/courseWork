@@ -1,4 +1,4 @@
-package company.java;
+package company.java.game;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

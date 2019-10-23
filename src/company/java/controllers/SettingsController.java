@@ -1,3 +1,3 @@
-package game.controllers;
+package company.java.controllers;
 public class SettingsController {
 }

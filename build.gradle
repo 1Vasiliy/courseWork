@@ -40,6 +40,7 @@ sourceSets {
 
 application {
     mainClassName = 'company.java.Main'
+//    mainClassName = 'Snake'
 }
 
 javafx {

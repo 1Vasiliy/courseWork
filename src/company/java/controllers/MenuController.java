@@ -1,6 +1,6 @@
-package game.controllers;
+package company.java.controllers;
 
-import company.java.Game;
+import company.java.game.Game;
 import company.java.Settings;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

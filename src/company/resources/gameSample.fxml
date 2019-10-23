@@ -10,7 +10,7 @@
 <?import javafx.scene.image.Image?>
 <Pane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="game.controllers.GameController"
+            fx:controller="company.java.controllers.GameController"
             prefHeight="400.0" prefWidth="600.0">
     <ImageView>
         <Image url="3aUyoNMvfDs.jpg" preserveRatio="true" requestedHeight="600"  backgroundLoading="true"/>
