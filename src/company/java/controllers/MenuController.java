@@ -18,19 +18,16 @@ public class MenuController {
     public void initialize(){
 
         gameButton.setOnMouseClicked(event -> {
-        Game game = new Game();
             try {
-                game.start((Stage) gameButton.getScene().getWindow());
+                new Game().start((Stage) gameButton.getScene().getWindow());
             } catch (Exception e) {
                 e.printStackTrace();
             }
         });
 
         settingsButton.setOnMouseClicked(event -> {
-            Settings settings = new Settings();
-
             try {
-                settings.start((Stage) settingsButton.getScene().getWindow());
+                new Settings().start((Stage) settingsButton.getScene().getWindow());
             } catch (Exception e) {
                 e.printStackTrace();
             }
